@@ -70,13 +70,13 @@ def handle_message(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                thumbnail_image_url='顯示在開頭的大圖片網址',
+                thumbnail_image_url='https://example.com/item1.jpg',
                 title='this is menu1',
                 text='description1',
                 actions=[
                     PostbackAction(
                         label='postback1',
-                        text='postback text1',
+                        display_text='postback text1',
                         data='action=buy&itemid=1'
                     ),
                     MessageAction(
@@ -90,13 +90,13 @@ def handle_message(event):
                 ]
             ),
             CarouselColumn(
-                thumbnail_image_url='顯示在開頭的大圖片網址',
+                thumbnail_image_url='https://example.com/item2.jpg',
                 title='this is menu2',
                 text='description2',
                 actions=[
                     PostbackAction(
                         label='postback2',
-                        text='postback text2',
+                        display_text='postback text2',
                         data='action=buy&itemid=2'
                     ),
                     MessageAction(
@@ -104,14 +104,14 @@ def handle_message(event):
                         text='message text2'
                     ),
                     URIAction(
-                        label='連結2',
+                        label='uri2',
                         uri='http://example.com/2'
                     )
                 ]
             )
         ]
-    )
-    )
+        )
+        )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
         return
 
