@@ -65,54 +65,19 @@ def handle_message(event):
         return
 
     if "我要預訂" in msg:
-        Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
-        template=CarouselTemplate(
-        columns=[
-            CarouselColumn(
-                thumbnail_image_url='顯示在開頭的大圖片網址',
-                title='this is menu1',
-                text='description1',
-                actions=[
-                    PostbackTemplateAction(
-                        label='postback1',
-                        text='postback text1',
-                        data='action=buy&itemid=1'
-                    ),
-                    MessageTemplateAction(
-                        label='message1',
-                        text='message text1'
-                    ),
-                    URITemplateAction(
-                        label='uri1',
-                        uri='http://example.com/1'
-                    )
-                ]
-            ),
-            CarouselColumn(
-                thumbnail_image_url='顯示在開頭的大圖片網址',
-                title='this is menu2',
-                text='description2',
-                actions=[
-                    PostbackTemplateAction(
-                        label='postback2',
-                        text='postback text2',
-                        data='action=buy&itemid=2'
-                    ),
-                    MessageTemplateAction(
-                        label='message2',
-                        text='message text2'
-                    ),
-                    URITemplateAction(
-                        label='連結2',
-                        uri='http://example.com/2'
-                    )
-                ]
-            )
-        ]
-        )
-        )
-        line_bot_api.reply_message(event.reply_token,Carousel_template)
+        image_carousel_template = ImageCarouselTemplate(columns=[
+            ImageCarouselColumn(image_url='https://via.placeholder.com/1024x1024',
+                                action=DatetimePickerAction(label='datetime',
+                                                            data='datetime_postback',
+                                                            mode='datetime')),
+            ImageCarouselColumn(image_url='https://via.placeholder.com/1024x1024',
+                                action=DatetimePickerAction(label='date',
+                                                            data='date_postback',
+                                                            mode='date'))
+        ])
+        template_message = TemplateSendMessage(
+            alt_text='ImageCarousel alt text', template=image_carousel_template)
+        line_bot_api.reply_message(event.reply_token, template_message)
         return
 
     
