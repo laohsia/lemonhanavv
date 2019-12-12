@@ -54,29 +54,17 @@ def handle_message(event):
     msg = event.message.text
     re = "超過回覆範圍喔! 麻煩重新再輸入一次"
 
-    if msg == "image_carousel":
-        image_carousel_template = ImageCarouselTemplate(columns=[
-            ImageCarouselColumn(image_url='https://via.placeholder.com/1024x1024',
-                                action=DatetimePickerAction(label='datetime',
-                                                            data='datetime_postback',
-                                                            mode='datetime')),
-            ImageCarouselColumn(image_url='https://via.placeholder.com/1024x1024',
-                                action=DatetimePickerAction(label='date',
-                                                            data='date_postback',
-                                                            mode='date'))
-        ])
-        template_message = TemplateSendMessage(
-            alt_text='ImageCarousel alt text', template=image_carousel_template)
-        line_bot_api.reply_message(event.reply_token, template_message)
+    if "貼圖" in msg:
+        sticker_message = StickerSendMessage(
+            package_id = "11537" ,
+            sticker_id = "52002744"
+            )
+        line_bot_api.reply_message(
+        event.reply_token,
+        sticker_message)
         return
 
-    if "我要預訂" in msg:
-
-
-    if "產品資訊" in msg:
-
-
-    if "疑問?" in msg:
+    
 
     
 
