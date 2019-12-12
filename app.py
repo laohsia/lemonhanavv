@@ -51,9 +51,22 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    msg = event.message.text
+    re = "超過回覆範圍喔! 麻煩重新再輸入一次"
+
+    if "我要預訂" in msg:
+
+
+    if "產品資訊" in msg:
+
+
+    if "疑問?" in msg:
+
+    
+
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=re))
 
 
 if __name__ == "__main__":
