@@ -75,7 +75,7 @@ def handle_message(event):
                 text='請填寫表單，完成後來電確認，取貨時付款即可',
                 actions=[
                     PostbackAction(
-                        label='postback1',
+                        label='~~~~~~~~~~~~~~~~~~~~~',
                         display_text='postback text1',
                         data='action=buy&itemid=1'
                     ),
@@ -95,7 +95,7 @@ def handle_message(event):
                 text='請填寫表單，完成後來電確認，取貨時付款即可',
                 actions=[
                     PostbackAction(
-                        label='~~~~~~~~~',
+                        label='~~~~~~~~~~~~~~~~~~~~~',
                         display_text='postback text1',
                         data='action=buy&itemid=1'
                     ),
@@ -115,12 +115,12 @@ def handle_message(event):
                 text='全台冷凍宅配，請先填寫完訂單並來電確認交貨日期後再行匯款',
                 actions=[
                     PostbackAction(
-                        label='~~~~~~~~',
+                        label='~~~~~~~~~~~~~~~~~~~~~',
                         display_text='postback text1',
                         data='action=buy&itemid=1'
                     ),
                     MessageAction(
-                        label='~~~~~~~~',
+                        label='~~~~~~~~~~~~~~~~~~~~~',
                         text='message text1'
                     ),
                     URIAction(
@@ -134,6 +134,11 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
         return
+
+    if "產品資訊" in msg:
+        line_bot_api.reply_message(event.reply_token,ImageSendMessage(
+            original_content_url='https://scontent.ftpe8-3.fna.fbcdn.net/v/t1.0-9/s960x960/79166425_3020749467943548_6137808969529294848_o.jpg?_nc_cat=111&_nc_ohc=CJAdUCHDtGsAQmInLfUa2pXq9GluGs5NkFKBj9m-aD5k4U5lv_XChYHLA&_nc_ht=scontent.ftpe8-3.fna&oh=8b796562847de0afb92814b3ab161e45&oe=5E855925', preview_image_url='https://scontent.ftpe8-3.fna.fbcdn.net/v/t1.0-9/s960x960/79166425_3020749467943548_6137808969529294848_o.jpg?_nc_cat=111&_nc_ohc=CJAdUCHDtGsAQmInLfUa2pXq9GluGs5NkFKBj9m-aD5k4U5lv_XChYHLA&_nc_ht=scontent.ftpe8-3.fna&oh=8b796562847de0afb92814b3ab161e45&oe=5E855925')
+                                   )
 
     if "高鐵門市地址" in msg:
         re = "台中高鐵站內摩斯漢堡對面"
