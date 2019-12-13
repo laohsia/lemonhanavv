@@ -145,7 +145,7 @@ def handle_message(event):
         buttons_template_message = TemplateSendMessage(
         alt_text='Buttons template',
         template=ButtonsTemplate(
-        thumbnail_image_url='https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjZlbTbyrHmAhXHG6YKHTxgAskQjRx6BAgBEAQ&url=http%3A%2F%2Fwww.public.tw%2Fseries%2FwebCK%2Fopsp_detail%2F155161.html&psig=AOvVaw1hgQY_K-LPRm6PKUlexMk0&ust=1576290732024728',
+        thumbnail_image_url='https://www.facebook.com/photo.php?fbid=3020826531269175&set=a.626212324063953&type=3&eid=ARCEfwR19FQJszbgdRVEFn01hPVShTJkjewO75kFpEbSf3jfUAJcX5QVufsnl3o_croqVc_pBOYrFf-l',
         title='常見問題',
         text='請點選以下常見的疑問，如無法回答您的問題，敬請來電詢問，感謝您~',
         actions=[
