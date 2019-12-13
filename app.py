@@ -139,6 +139,35 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(
             original_content_url='https://scontent.ftpe8-3.fna.fbcdn.net/v/t1.0-9/s960x960/79166425_3020749467943548_6137808969529294848_o.jpg?_nc_cat=111&_nc_ohc=CJAdUCHDtGsAQmInLfUa2pXq9GluGs5NkFKBj9m-aD5k4U5lv_XChYHLA&_nc_ht=scontent.ftpe8-3.fna&oh=8b796562847de0afb92814b3ab161e45&oe=5E855925', preview_image_url='https://scontent.ftpe8-3.fna.fbcdn.net/v/t1.0-9/s960x960/79166425_3020749467943548_6137808969529294848_o.jpg?_nc_cat=111&_nc_ohc=CJAdUCHDtGsAQmInLfUa2pXq9GluGs5NkFKBj9m-aD5k4U5lv_XChYHLA&_nc_ht=scontent.ftpe8-3.fna&oh=8b796562847de0afb92814b3ab161e45&oe=5E855925')
                                    )
+        return
+
+    if "疑問?" in msg:
+        buttons_template_message = TemplateSendMessage(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
+        thumbnail_image_url='https://example.com/image.jpg',
+        title='Menu',
+        text='Please select',
+        actions=[
+            PostbackAction(
+                label='postback',
+                display_text='postback text',
+                data='action=buy&itemid=1'
+            ),
+            MessageAction(
+                label='message',
+                text='message text'
+            ),
+            URIAction(
+                label='uri',
+                uri='http://example.com/'
+            )
+        ]
+        )
+        )
+        line_bot_api.reply_message(event.reply_token,buttons_template_message)
+        return
+
 
     if "高鐵門市地址" in msg:
         re = "台中高鐵站內摩斯漢堡對面"
