@@ -95,7 +95,7 @@ def handle_message(event):
                 text='請填寫表單，完成後來電確認，取貨時付款即可',
                 actions=[
                     PostbackAction(
-                        label='---------------------------',
+                        label='~~~~~~~~~',
                         display_text='postback text1',
                         data='action=buy&itemid=1'
                     ),
@@ -115,12 +115,12 @@ def handle_message(event):
                 text='全台冷凍宅配，請先填寫完訂單並來電確認交貨日期後再行匯款',
                 actions=[
                     PostbackAction(
-                        label='postback1',
+                        label='~~~~~~~~',
                         display_text='postback text1',
                         data='action=buy&itemid=1'
                     ),
                     MessageAction(
-                        label='message1',
+                        label='~~~~~~~~',
                         text='message text1'
                     ),
                     URIAction(
