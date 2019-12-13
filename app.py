@@ -150,16 +150,36 @@ def handle_message(event):
         text='請點選以下常見的疑問，如無法回答您的問題，敬請來電詢問，感謝您~',
         actions=[
             MessageAction(
-                label='message',
-                text='message text'
+                label='最佳食用方式?',
+                text='最佳食用方式?'
             ),
             MessageAction(
-                label='message',
-                text='message text'
+                label='運費計算方式?',
+                text='運費計算方式?'
             ),
             MessageAction(
-                label='message',
-                text='message text'
+                label='建議搭配飲品?',
+                text='建議搭配飲品?'
+            ),
+            MessageAction(
+                label='素食者可以吃嗎?',
+                text='素食者可以吃嗎?'
+            ),
+            MessageAction(
+                label='期待新產品的推出',
+                text='期待新產品的推出'
+            ),
+            MessageAction(
+                label='一般訂購跟彌月訂購價格一樣嗎?',
+                text='一般訂購跟彌月訂購價格一樣嗎?'
+            ),
+            MessageAction(
+                label='保冷劑跟保冷袋需要加購嗎?',
+                text='保冷劑跟保冷袋需要加購嗎?'
+            ),
+            MessageAction(
+                label='可以告訴我完整的訂購流程嗎?',
+                text='可以告訴我完整的訂購流程嗎?'
             )
         ]
         )
