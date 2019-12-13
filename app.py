@@ -149,18 +149,17 @@ def handle_message(event):
         title='常見問題',
         text='請點選以下常見的疑問，如無法回答您的問題，敬請來電詢問，感謝您~',
         actions=[
-            PostbackAction(
-                label='postback',
-                display_text='postback text',
-                data='action=buy&itemid=1'
+            MessageAction(
+                label='message',
+                text='message text'
             ),
             MessageAction(
                 label='message',
                 text='message text'
             ),
-            URIAction(
-                label='uri',
-                uri='http://example.com/'
+            MessageAction(
+                label='message',
+                text='message text'
             )
         ]
         )
