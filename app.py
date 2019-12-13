@@ -70,42 +70,43 @@ def handle_message(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                thumbnail_image_url='https://example.com/item1.jpg',
-                title='this is menu1',
-                text='description1',
+                thumbnail_image_url='https://images.app.goo.gl/tcKGHtBUJx4j7vxR7',
+                title='台中高鐵站門市(自取)',
+                text='請填寫表單，完成後來電確認，取貨時付款即可',
                 actions=[
-                    PostbackAction(
-                        label='postback1',
-                        display_text='postback text1',
-                        data='action=buy&itemid=1'
-                    ),
-                    MessageAction(
-                        label='message1',
-                        text='message text1'
+                   MessageAction(
+                        label='門市地址',
+                        text='高鐵門市地址'
                     ),
                     URIAction(
-                        label='uri1',
-                        uri='http://example.com/1'
+                        label='訂購表單',
+                        uri='https://bit.ly/2Lhgrnx'
                     )
                 ]
             ),
             CarouselColumn(
-                thumbnail_image_url='https://example.com/item2.jpg',
-                title='this is menu2',
-                text='description2',
+                thumbnail_image_url='https://images.app.goo.gl/wpyar79sXKRiUnjD8',
+                title='美村本店(自取)',
+                text='請填寫表單，完成後來電確認，取貨時付款即可',
                 actions=[
-                    PostbackAction(
-                        label='postback2',
-                        display_text='postback text2',
-                        data='action=buy&itemid=2'
-                    ),
                     MessageAction(
-                        label='message2',
-                        text='message text2'
+                        label='門市地址',
+                        text='美村本店地址'
                     ),
                     URIAction(
-                        label='uri2',
-                        uri='http://example.com/2'
+                        label='訂購表單',
+                        uri='https://bit.ly/2sAgS4I'
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url='https://images.app.goo.gl/S54mVcCK8fCR4oSb8',
+                title='宅配預訂',
+                text='全台冷凍宅配，請先填寫完訂單並來電確認交貨日期後再行匯款',
+                actions=[
+                    URIAction(
+                        label='訂購表單',
+                        uri='https://bit.ly/2sAgS4I'
                     )
                 ]
             )
@@ -115,6 +116,10 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
         return
 
+    if "高鐵門市地址" in msg:
+        re = "台中高鐵站內摩斯漢堡對面"
+    elif "美村本店地址" in msg:
+        re = "台中市西區美村路一段596巷14號"
     
 
     
