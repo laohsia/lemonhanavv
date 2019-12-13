@@ -94,11 +94,11 @@ def handle_message(event):
                 title='美村本店(自取)',
                 text='請填寫表單，完成後來電確認，取貨時付款即可',
                 actions=[
-                    #PostbackAction(
-                      #  label='postback1',
-                        #display_text='postback text1',
-                        #data='action=buy&itemid=1'
-                    #),
+                    PostbackAction(
+                        label='---------------------------',
+                        display_text='postback text1',
+                        data='action=buy&itemid=1'
+                    ),
                     MessageAction(
                         label='門市地址',
                         text='美村本店地址'
