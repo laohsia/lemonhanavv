@@ -142,51 +142,88 @@ def handle_message(event):
         return
 
     if "疑問?" in msg:
-        buttons_template_message = TemplateSendMessage(
-        alt_text='Buttons template',
-        template=ButtonsTemplate(
-        thumbnail_image_url='https://scontent.ftpe8-4.fna.fbcdn.net/v/t1.0-9/79181133_3020826534602508_1338712426803101696_n.jpg?_nc_cat=102&_nc_ohc=z3xmc-mtHbcAQmhwm8mr7rWOzgEbirEs6NjGcJcuJeFhfee0ya4c3TtTQ&_nc_ht=scontent.ftpe8-4.fna&oh=8c38918c9510e6d3b366bbbdafcf0eb2&oe=5E78A3C5',
-        title='常見問題',
-        text='請點選以下常見的疑問，如無法回答您的問題，敬請來電詢問，感謝您~',
-        actions=[
-            MessageAction(
-                label='最佳食用方式?',
-                text='最佳食用方式?'
+        bubble = BubbleContainer(
+            direction='ltr',
+            hero=ImageComponent(
+                url='https://scontent.ftpe8-1.fna.fbcdn.net/v/t1.0-9/79700129_3028430623842099_7126640471203381248_n.jpg?_nc_cat=105&_nc_ohc=EVvK1FJ1Hx0AQkYVs6ZndjKBRxnCe4kkCqozIAoPsgbYC-F1KyP5-9ycA&_nc_ht=scontent.ftpe8-1.fna&oh=a19374d1a71bffe76e0befb5470eacec&oe=5E70FB25',
+                size='full',
+                aspect_ratio='20:13',
+                aspect_mode='cover',
+                action=URIAction(uri='https://scontent.ftpe8-1.fna.fbcdn.net/v/t1.0-9/79700129_3028430623842099_7126640471203381248_n.jpg?_nc_cat=105&_nc_ohc=EVvK1FJ1Hx0AQkYVs6ZndjKBRxnCe4kkCqozIAoPsgbYC-F1KyP5-9ycA&_nc_ht=scontent.ftpe8-1.fna&oh=a19374d1a71bffe76e0befb5470eacec&oe=5E70FB25', label='label')
             ),
-            MessageAction(
-                label='運費計算方式?',
-                text='運費計算方式?'
-            ),
-            MessageAction(
-                label='建議搭配飲品?',
-                text='建議搭配飲品?'
-            ),
-            MessageAction(
-                label='素食者可以吃嗎?',
-                text='素食者可以吃嗎?'
-            ),
-            MessageAction(
-                label='期待新產品的推出',
-                text='期待新產品的推出'
-            ),
-            MessageAction(
-                label='一般訂購跟彌月訂購價格一樣嗎?',
-                text='一般訂購跟彌月訂購價格一樣嗎?'
-            ),
-            MessageAction(
-                label='保冷劑跟保冷袋需要加購嗎?',
-                text='保冷劑跟保冷袋需要加購嗎?'
-            ),
-            MessageAction(
-                label='可以告訴我完整的訂購流程嗎?',
-                text='可以告訴我完整的訂購流程嗎?'
-            )
-        ]
+            body=BoxComponent(
+                layout='vertical',
+                contents=[
+                    # title
+                    TextComponent(text='常見問題', weight='bold', size='xl')
+                        ]
+                    ),
+                
+            footer=BoxComponent(
+                layout='vertical',
+                spacing='sm',
+                contents=[
+                    # callAction, separator, websiteAction
+                    SpacerComponent(size='sm'),
+                    # callAction
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='最佳食用方式?', text="最佳食用方式?"),
+                    ),
+                    # separator
+                    SeparatorComponent(),
+                    # websiteAction
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='運費計算方式?', text="運費計算方式?")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='建議搭配飲品?', text="建議搭配飲品?")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='素食者可以吃嗎?', text="素食者可以吃嗎?")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='期待新的產品推出', text="期待新的產品推出")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='一般訂購跟彌月訂購價格一樣嗎?', text="一般訂購跟彌月訂購價格一樣嗎?")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='保冷劑跟保冷袋需要加購嗎?', text="保冷劑跟保冷袋需要加購嗎?")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='可以告訴我完整的訂購流程嗎?', text="可以告訴我完整的訂購流程嗎?")
+                    )
+                ]
+            ) 
         )
+        message = FlexSendMessage(alt_text="hello", contents=bubble)
+        line_bot_api.reply_message(
+            event.reply_token,
+            message
         )
-        line_bot_api.reply_message(event.reply_token,buttons_template_message)
         return
-
 
     if "高鐵門市地址" in msg:
         re = "台中高鐵站內摩斯漢堡對面"
