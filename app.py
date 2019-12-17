@@ -185,7 +185,7 @@ def handle_message(event):
                 ]
             ) 
         )
-        message = FlexSendMessage(alt_text="Lemonhanavv", contents=bubble)
+        message = FlexSendMessage(alt_text="花鳥川水果千層蛋糕", contents=bubble)
         line_bot_api.reply_message(
             event.reply_token,
             message
