@@ -82,7 +82,7 @@ def handle_message(event):
                            text='全台冷凍宅配，請先來電確到貨日期及數量，填寫完訂單後再行匯款 或 貨到付款', title='宅配預訂',
                            actions=[
                 URIAction(label='訂購表單', uri='https://bit.ly/2sAgS4I'),
-                MessageAction(label='合作宅配廠商', text='黑貓宅急便')
+                MessageAction(label='合作宅配廠商', text='合作宅配廠商')
             ])
         ])
         template_message = TemplateSendMessage(
@@ -216,7 +216,8 @@ def handle_message(event):
         re = "有的! 凡團購20條(或20條的倍數)，不但免運費，每條價格降為380元喔!"
     elif "宅配可以貨到付款嗎?貨到付款需要另外支付手續費?" in msg:
         re = "宅配可以選擇貨到付款喔!\n手續費的部分:\n貨款2000以下，手續費30元\n貨款總額2001-5000元，手續費60元\n貨款總額5001-10000元，手續費90元"
-
+    elif "合作宅配廠商" in msg:
+        re = "黑貓宅急便"
     
 
     line_bot_api.reply_message(
