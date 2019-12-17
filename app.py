@@ -177,12 +177,6 @@ def handle_message(event):
                     ButtonComponent(
                         style='link',
                         height='sm',
-                        action=MessageAction(label='運費計算方式?', text="運費計算方式?")
-                    ),
-                    SeparatorComponent(),
-                    ButtonComponent(
-                        style='link',
-                        height='sm',
                         action=MessageAction(label='建議搭配飲品?', text="建議搭配飲品?")
                     ),
                     SeparatorComponent(),
@@ -195,7 +189,13 @@ def handle_message(event):
                     ButtonComponent(
                         style='link',
                         height='sm',
-                        action=MessageAction(label='期待新的產品推出', text="期待新的產品推出")
+                        action=MessageAction(label='運費計算方式?', text="運費計算方式?")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='宅配可以貨到付款嗎?貨到付款需要另外支付手續費?', text="宅配可以貨到付款嗎?貨到付款需要另外支付手續費?")
                     ),
                     SeparatorComponent(),
                     ButtonComponent(
@@ -213,12 +213,24 @@ def handle_message(event):
                     ButtonComponent(
                         style='link',
                         height='sm',
+                        action=MessageAction(label='有團購優惠嗎?', text="有團購優惠嗎?")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
                         action=MessageAction(label='可以告訴我完整的訂購流程嗎?', text="可以告訴我完整的訂購流程嗎?")
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=MessageAction(label='期待新的產品推出', text="期待新的產品推出")
                     )
                 ]
             ) 
         )
-        message = FlexSendMessage(alt_text="hello", contents=bubble)
+        message = FlexSendMessage(alt_text="Lemonhanavv", contents=bubble)
         line_bot_api.reply_message(
             event.reply_token,
             message
@@ -230,21 +242,25 @@ def handle_message(event):
     elif "美村本店地址" in msg:
         re = "台中市西區美村路一段596巷14號"
     elif "最佳食用方式?" in msg:
-        re = " "
+        re = "怎麼吃都好吃!但從冷凍取出後可以先常溫放5分鐘軟化會比較好切"
     elif "運費計算方式?" in msg:
-        re = " "
+        re = "宅配皆為冷凍宅配喔!\n1-2條/箱 : 160元\n3-8條/箱 : 225元\n9-11條 : 290元\n12-20條/箱 : 免運費!"
     elif "建議搭配飲品?" in msg:
-        re = " "
+        re = "紅茶(?...啊我不知道啦"
     elif "素食者可以吃嗎?" in msg:
         re = "本產品為奶蛋素喔 !"
     elif "期待新的產品推出" in msg:
         re = "非常感謝您的支持! 目前只有檸檬千層蛋糕喔~我們也正在努力研發新口味~敬請期待!!!"
     elif "一般訂購跟彌月訂購價格一樣嗎?" in msg:
-        re = " "
+        re = "這個目前不清楚，等老闆娘回國會再回覆您XD"
     elif "保冷劑跟保冷袋需要加購嗎?" in msg:
         re = "凡購買產品，每條皆附保冷劑一個以及鋁箔包裝(夏日保冷3小時，秋冬保冷4小時)。\n加購的部分: 1個保冷劑10元、2個保冷劑20元"
     elif "可以告訴我完整的訂購流程嗎?" in msg:
-        re = " "
+        re = "目前的訂購流程為:\nStep1. 先來電確認欲宅配日期及數量\nStep2. 訂購表單\nStep3. 填寫完後煩請再次來電或粉絲團留言，確認訂單成立\n日後訂購方式或流程如有變化會再通知大家的~感謝您!"
+    elif "有團購優惠嗎?" in msg:
+        re = "有的! 凡團購20條(或20條的倍數)，不但免運費，每條價格降為380元喔!"
+    elif "宅配可以貨到付款嗎?貨到付款需要另外支付手續費?" in msg:
+        re = "宅配可以選擇貨到付款喔!\n手續費的部分:\n貨款2000以下，手續費30元\n貨款總額2001-5000元，手續費60元\n貨款總額5001-10000元，手續費90元"
 
     
 
