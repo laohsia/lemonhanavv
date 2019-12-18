@@ -52,7 +52,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    re = "超過回覆範圍喔! 麻煩重新再輸入一次"
+    #re = "超過回覆範圍喔! 麻煩重新再輸入一次"
 
     if "貼圖" in msg:
         sticker_message = StickerSendMessage(
